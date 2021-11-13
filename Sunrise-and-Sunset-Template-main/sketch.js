@@ -8,6 +8,7 @@ var backgroundImg;
 var hour;
 
 var bg = "sunrise.png";
+var bg = "sunset.png";
 
 function preload() {
     getBackgroundImg();
@@ -43,17 +44,18 @@ function draw(){
 async function getBackgroundImg(){
 
     // write code to fetch time from API
-    var response= await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata")
+    var response = await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
  
     //change the data in JSON format and store it in variable responseJSON
-    var responseJSON=await response.json();
+    var responseJSON = await response.json();
     console.log(responseJSON)
     
     //fetch datetime from responseJSON
     var datetime = responseJSON.datetime;
+    
 
     // slice the datetime to extract hour
-    var hour = datetime.slice(11,13);
+     var hour = datetime.slice(11,13);
      console.log(hour)
     
     if(hour>=0 && hour<18 ){
